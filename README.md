@@ -1,6 +1,7 @@
 
 As tabelas estão com padrão tb_nomeTabela (plural)
 Os campos seguem o padrão nomeDoCampo_nomeDaTabela (singular)
+Basta importar o banco de dados, já está com o "create database"
 
 tb_alunos
 - chave primaria (id_aluno)
