@@ -1,0 +1,28 @@
+Sistema onde o professor estabelece a regra e a nota final é calculada automaticamente
+Tabela aluno
+Tabela Boletim
+Tabela Nota
+
+
+Inserir o Aluno
+- chave primaria
+- nome do aluno
+- ra do aluno
+
+Inserir a Atividade
+- chave primaria
+- nome da atividade
+- nota da atividade
+
+Inserir o Boletim
+- chave primaria
+- fk do aluno
+- fk da nota
+
+Tabela de Professor
+- chave primaria
+- nome
+
+Tabela de Regra
+- chave primaria
+- formula da regra
