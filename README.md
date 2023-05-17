@@ -1,7 +1,7 @@
 
 # Boletim
-#### As tabelas estão com padrão tb_nomeTabela (plural).
-#### Os campos seguem o padrão nomeDoCampo_nomeDaTabela (singular).
+#### As tabelas estão com padrão tb_nomes (plural).
+#### Os campos seguem o padrão nome_tabela (singular).
 #### Basta importar o banco de dados, já está com o "create database".
 
 ## tb_alunos
