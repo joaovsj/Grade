@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <script src="https://kit.fontawesome.com/219248cbde.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+<body>
+    <main>
+        <section class="first">
+            
+        </section>
+        <section class="second">
+            <form>
+                <h1>&nbsp;Entrar</h1>
+                <div class="inputBox">
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="" id="" placeholder="E-mail" >
+                    </span>
+                </div>
+                <div class="inputBox">
+                    <span>
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="" id="Senha" placeholder="Sua senha... ">
+                    </span>
+                   
+                </div>
+                <div class="inputBox">
+                    <button>Entrar</button>
+                </div>
+            </form>  
+        </section>
+    </main>
+
+    <script>
+        const inputs = document.querySelectorAll("input");
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {input.style.outline="1px solid rgba(3, 172, 191, 1)"});
+            input.addEventListener('focusout', () => {input.style.outline="1px solid #cfcfcf"});
+        });
+    </script>
+</body>
+</html>

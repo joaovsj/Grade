@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Poppins:wght@400;500&display=swap');
+
+:root{
+    --color1: rgba(3, 57, 165, 1); 
+    --color2: rgba(3, 172, 191, 1); 
+    --color3: rgba(242, 182, 4, 1);
+    --color4: rgba(242, 135, 4, 1); 
+    --color5: rgba(242, 56, 14, 1); 
+}
+
+*, *::after,
+*::before{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #edebeb;
+}
+
+
+main{
+    height: 80vh;
+    width: 70%;
+    border-radius: 8px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+main .first,
+main .second{
+    width: 50%;
+    height: 100%;
+}
+
+main .first{
+    position: relative;
+    background-image: url(../../assets/img/security.jpg);
+    background-size: cover;
+}
+
+main .first::after{
+    content: 'Chegou a hora de inovar!';
+    position: absolute;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFF;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+main .second{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .second form{
+    width: 70%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .second form h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 2vh;
+    border-left: 40px solid var(--color2);
+}
+
+main .second form .inputBox{
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+main .second form .inputBox>span i{
+    pointer-events: none;
+    position: absolute;
+    left: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+main .second form .inputBox input{
+    border: none;
+    outline: 1px solid #cfcfcf;
+    border-radius: 8px;
+    padding: 15px 15px 15px 50px;
+    width: 100%;
+}
+
+main .second form .inputBox button{
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color4);
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .4s;
+}
+
+main .second form .inputBox button:hover{
+    background-color: rgb(199, 110, 1);   
+}
