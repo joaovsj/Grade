@@ -1,28 +1,27 @@
 
-# Boletim
-#### As tabelas estão com padrão tb_nomes (plural).
-#### Os campos seguem o padrão nome_tabela (singular).
+# Grade
+#### Just import database, it're with "create database"
 #### Basta importar o banco de dados, já está com o "create database".
 
-## tb_alunos
-- chave primaria (id_aluno)
-- nome do aluno (nome_aluno)
+## student_tb
+- student_id
+- student_name
 
-## tb_atividades
-- chave primaria (id_atividade)
-- nome da atividade nome_atividade
-- nota da atividade nota_atividade
+## assignment_tb
+- assignment_id
+- assignment_name
 
-## tb_boletins
-- chave primaria (id_boletim)
-- fk do aluno (fk_aluno)
-- fk da atividade (fk_atividade)
- 
-## tb_professores
-- chave primaria (id_professor)
-- nome (nome_professor)
+## grade_tb
+- grade_id
+- student_fk
+- assignment_fk
+- assignment_grade
+- 
+## teacher_tb
+- teacher_id
+- teacher_name
 
-## tb_regras
-- chave primaria (id_regra)
-- formula da regra (formula_regra)
-- fk do professor (fk_professor)
+## tb_pattern
+- patter_id
+- pattern_formula
+- teacher_fk
