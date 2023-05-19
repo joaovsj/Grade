@@ -125,7 +125,7 @@ main .presentation .first h1{
     margin-left: 6vw;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 4rem;
+    font-size: 3rem;
     animation: show-text 2s ease forwards;
     opacity: 0;
 }
@@ -413,8 +413,6 @@ footer{
 }
 
 @media (max-width: 1230px) {
-
-    
 
     .presentation .first{
         margin-left: 15%;
