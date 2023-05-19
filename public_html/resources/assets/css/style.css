@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Poppins:wght@400;500&display=swap');
+
+:root{
+    --color1: rgba(3, 57, 165, 1); 
+    --color2: rgba(3, 172, 191, 1); 
+    --color3: rgba(242, 182, 4, 1);
+    --color4: rgba(242, 135, 4, 1); 
+    --color5: rgba(242, 56, 14, 1); 
+}
+
+*, *::after,
+*::before{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body, main{
+    min-height: 100vh;
+    width: 100%;
+}
+
+main header{
+    padding: 10px;
+    height: 9vh;
+    width: 100%;
+    background-color: var(--color2);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main header>span{
+    color: #505050;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+main header>span i{
+    font-size: 1.5rem;
+}
+
+/* main header nav{
+} */
+
+main header nav ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+main header nav ul a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+main .presentation{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    background-color: #dcdbdb73;
+}
+
+main .presentation .first,
+main .presentation .second{
+    width: 50%;
+    height: 100%;
+}
+
+main .presentation .first {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .presentation .first .square,
+main .presentation .first .square-two{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+main .presentation .first .square{
+    background-color: var(--color3);
+    left: 8%;
+    animation: square 8s ease infinite;
+}
+
+main .presentation .first .square-two{
+    background-color: var(--color2);
+    left: 2%; 
+    animation: square-two 8s ease infinite;  
+}
+
+@keyframes square{
+    0%{ bottom: 10%; }
+    50%{ bottom: 12%; }
+    100%{ bottom: 10%; }
+}
+
+@keyframes square-two{
+    0%{ bottom: 5%; }
+    50%{ bottom: 4%; }
+    100%{ bottom: 5%; }
+}
+
+main .presentation .first .text a{
+    display: block;
+    margin-left: 6vw;
+    margin-top: 40px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #505050;
+}
+
+main .presentation .first h1{
+    margin-left: 6vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 4rem;
+    animation: show-text 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes show-text{
+   to{
+    opacity: 1; 
+   } 
+}
+
+main .presentation .first span{
+    position: relative;
+}
+
+main .presentation .first .one{
+    color: var(--color1);
+    font-weight: bold;
+}
+
+main .presentation .first .two::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 8px;
+    background-color: var(--color5);
+    animation: show-border 2s ease forwards;
+}
+
+@keyframes show-text{
+    to{
+      opacity: 1;
+    } 
+}
+
+@keyframes show-border{
+    to{
+      width: 35%;
+    } 
+} 
+
+main .presentation .second{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .presentation .second .image{
+    height: 60%;
+    width: 60%;
+    transform: rotate(25deg);
+    background-color: var(--color3);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    z-index: 9999;
+    border-radius: 8px;
+    opacity: 0;
+    animation: second-img 2s ease forwards; 
+    animation-delay: 1s;
+}
+
+main .presentation .second .image::before{
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transform: rotate(30deg);
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #505050;
+    background-image: url(../img/woman.jpg);
+    background-size: cover;
+    top: 10%;
+    left: -10%;
+    z-index: -111;
+    opacity: 0;
+    animation: img-animate 2s ease forwards;
+    animation-delay: 1s;
+}
+
+
+
+@keyframes img-animate{
+    to{
+        opacity: 1;
+        transform: rotate(1deg);
+    }
+}
+
+@keyframes second-img{
+    to{
+        opacity: 1;
+        transform: rotate(5deg);    
+    }
+}
+
+.range{
+    width: 100%;
+    height: 30vh;
+    background-color: var(--color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper{
+    box-sizing: content-box;
+    height: 70px;
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    padding: 50px 30px;
+    display: flex;
+    border-radius: 8px;
+}
+
+.words{
+    overflow: hidden;
+}
+
+.words span{
+    display: block;
+    height: 100%;
+    padding-left: 10px;
+    color: var(--color4);
+    animation: spin_words 6s infinite;
+}
+
+@keyframes spin_words{
+    10%{
+        transform: translateY(-112%);
+    }
+    25%{
+        transform: translateY(-100%);
+    }
+
+    35%{
+        transform: translateY(-212%);
+    }
+
+    50%{
+        transform: translateY(-200%);
+    }
+    60%{
+        transform: translateY(-312%);
+    }
+    75%{
+        transform: translateY(-300%);
+    }
+    85%{
+        transform: translateY(-412%);
+    }
+    100%{
+        transform: translateY(-400%);
+    }
+}
+
+.about{
+    min-height: 80vh;
+    width: 100%;
+    display: flex;
+}
+
+.about .first,
+.about .second{
+    width: 50%;
+}
+
+.about .first{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .first span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+}
+
+.about .second {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about .second .text{
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px;
+    width: 80%;
+    font-size: 1.2rem;
+    color: #FFF;
+    border-radius: 8px;
+    background-color: var(--color2);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+.about .second .text h1{
+    margin-bottom: 10px;
+}
+
+.about .second .text a button{
+    position: relative;
+    left: 25%;
+    width: 50%;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1.5rem;
+    box-shadow: 0 0px 10px var(--color4);
+    background-color: var(--color4);
+    font-family: 'Montserrat', sans-serif;
+    color: #FFF;
+    animation: button 3s ease infinite;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+
+@keyframes button {
+    0%{
+        transform: scale(1); 
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.image-down{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 100%; 
+    overflow: hidden;   
+}
+
+.image-down>img{
+    height: 100%;
+    flex-grow: 1;
+    background-color: tomato;
+    filter: blur(5px);
+}
+
+.image-down a{
+    text-decoration: none;
+    color: #505050;
+}
+
+.image-down button{
+    position: absolute;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding: 30px;
+    font-size: 1.5rem;
+    color: #505050;
+    background-color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.image-down button:hover{
+    background-color: #dbd8d8;
+}
+
+footer{
+    margin-top: 20vh;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+    background-color: var(--color1);
+}
+
+@media (max-width: 1230px) {
+
+    
+
+    .presentation .first{
+        margin-left: 15%;
+        width: 100% !important;
+    }   
+
+    .presentation .second{
+        width: 0;
+        display: none !important;
+    }
+
+    .about{
+        flex-direction: column;
+        padding: 40px;
+    }
+    .about .first,
+    .about .second{
+        width: 100%;
+    }
+    
+    .about .second .text a button{
+        left: 0;
+        width: 100%;
+    }
+
+    .about .second .text{
+        margin-top: 40px;
+        width: 100%;        
+    }
+
+    .wrapper{
+        font-size: 7vw;
+    }
+
+    main .presentation .first .text a{
+        font-size: 4vw;
+    }
+
+    main .presentation .first h1{
+        font-size: 9vw;
+    }
+
+    footer{
+        font-size: 5vw;
+    }
+  
+}
+
