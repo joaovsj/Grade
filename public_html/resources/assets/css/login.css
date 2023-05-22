@@ -100,6 +100,29 @@ main .second form .inputBox>span i{
     transform: translateY(-50%);
 }
 
+/* main .second form .inputBox>span #lock{
+    top: 50% !important;
+} */
+
+/* icon password */
+main .second form .inputBox>span #icon-password{
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+main .second form .inputBox>span #icon-password::before{
+    content: '\f06e';
+    font-family: fontAwesome;
+}
+
+main .second form .inputBox>span #icon-password.hide::before{
+    content: '\f070';
+    font-family: fontAwesome;
+}
+
 main .second form .inputBox input{
     border: none;
     outline: 1px solid #cfcfcf;
@@ -123,4 +146,30 @@ main .second form .inputBox button{
 
 main .second form .inputBox button:hover{
     background-color: rgb(199, 110, 1);   
+}
+
+main .second form>a{
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #505050;
+    text-align: right;
+}
+
+@media(max-width: 910px){
+    main{
+        flex-direction: column;
+    }
+    main .first,
+    main .second{
+        width: 100%;
+    }   
+
+    main .second{
+        padding: 40px 0;
+    }
+
+    main .second form{
+        padding: 0;
+    }
 }

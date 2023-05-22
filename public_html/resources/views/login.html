@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/login.css">
+    <script src="../assets/js/login.js" defer></script>
     <script src="https://kit.fontawesome.com/219248cbde.js" crossorigin="anonymous"></script>
     <title>Login</title>
 </head>
@@ -24,25 +25,18 @@
                 </div>
                 <div class="inputBox">
                     <span>
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" name="" id="Senha" placeholder="Sua senha... ">
+                        <i class="fa-solid fa-lock" id="lock"></i>
+                        <input type="password" name="" id="password" placeholder="Sua senha... ">
+                        <span id="icon-password"></span>
                     </span>
                    
                 </div>
                 <div class="inputBox">
                     <button>Entrar</button>
                 </div>
+                <a href="register.html">Cadastrar-se</a>
             </form>  
         </section>
     </main>
-
-    <script>
-        const inputs = document.querySelectorAll("input");
-
-        inputs.forEach(input => {
-            input.addEventListener('focus', () => {input.style.outline="1px solid rgba(3, 172, 191, 1)"});
-            input.addEventListener('focusout', () => {input.style.outline="1px solid #cfcfcf"});
-        });
-    </script>
 </body>
 </html>
