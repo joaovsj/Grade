@@ -25,3 +25,6 @@
 - patter_id
 - pattern_formula
 - teacher_fk
+
+# routes
+![image](https://github.com/Vitors-Miranda/Grade/assets/82851236/ea91c76a-3699-4f4c-b434-7225d167d505)
