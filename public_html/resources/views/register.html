@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <script src="../assets/js/inputs.js" defer></script>
+    <script src="../assets/js/login.js" defer></script>
+    <script src="https://kit.fontawesome.com/219248cbde.js" crossorigin="anonymous"></script>
+    <title>Cadastrar</title>
+</head>
+    <style>
+        .first{
+            background-image: url(../assets/img/business.jpg) !important;
+        }
+        .first::after{
+            content: 'Conte com a gente!' !important;
+        }
+    </style>
+
+<body>
+    <main>
+        <section class="first">
+            
+        </section>
+        <section class="second">
+            <form>
+                <h1>&nbsp;Cadastrar</h1>
+                <div class="inputBox">
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" name="name" id="name" placeholder="Nome" required>
+                    </span>
+                </div>
+                <div class="inputBox">
+                    <span>
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="" id="" placeholder="E-mail" required>
+                    </span>
+                </div>
+                <div class="inputBox">
+                    <span>
+                        <i class="fa-solid fa-lock" id="lock"></i>
+                        <input type="password" name="" id="password" placeholder="Sua senha... " required >
+                        <span id="icon-password"></span>
+                    </span>
+                </div>
+                <div class="inputBox">
+                    <button>Cadastrar-se</button>
+                </div>
+                <a href="login.html">Login</a>
+            </form>  
+        </section>
+    </main>
+</body>
+</html>
