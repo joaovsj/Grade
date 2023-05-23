@@ -25,33 +25,39 @@
             
         </section>
         <section class="second">
-            <form>
+            <form id="form">
+                <!-- <div class="message">
+                    <p>Lorem, ipsum. ipsum.ipsum.</p>
+                </div> -->
+
                 <h1>&nbsp;Cadastrar</h1>
                 <div class="inputBox">
                     <span>
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="name" id="name" placeholder="Nome" required>
+                        <input type="text" name="teacher_name" id="name" placeholder="Nome" required>
                     </span>
                 </div>
                 <div class="inputBox">
                     <span>
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" name="" id="" placeholder="E-mail" required>
+                        <input type="email" name="teacher_email" id="" placeholder="E-mail" required>
                     </span>
                 </div>
                 <div class="inputBox">
                     <span>
                         <i class="fa-solid fa-lock" id="lock"></i>
-                        <input type="password" name="" id="password" placeholder="Sua senha... " required >
+                        <input type="password" name="teacher_password" id="password" placeholder="Sua senha... " required >
                         <span id="icon-password"></span>
                     </span>
                 </div>
                 <div class="inputBox">
-                    <button>Cadastrar-se</button>
+                    <button type="submit">Cadastrar-se</button>
                 </div>
                 <a href="login.html">Login</a>
             </form>  
         </section>
     </main>
 </body>
+<script type="text/javascript" src="../assets/js/request.js"></script>
+<script type="text/javascript" src="../assets/js/register.js"></script>
 </html>

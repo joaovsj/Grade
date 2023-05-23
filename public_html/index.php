@@ -9,12 +9,14 @@ header("Content-Type: application/json");
 require_once __DIR__ .  "/../vendor/autoload.php";
 
 if (isset($_GET["url"])) {
+
     $url = explode("/", $_GET["url"]);
 
     if ($url[0] === "api") {
         array_shift($url);
 
         $controller = "App\Controllers\\" . ucfirst($url[0]) . "Controller";
+    
         array_shift($url);
 
         $method = strtolower($_SERVER["REQUEST_METHOD"]);
