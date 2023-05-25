@@ -1,5 +1,5 @@
 
-const API = "http://localhost/grade/public_html/api/teacher";
+const API = "public_html/api/teacher";
 
 const request = async (method, data, funcCallBack) => {
 

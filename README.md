@@ -20,11 +20,17 @@
 ## teacher_tb
 - teacher_id
 - teacher_name
+- teacher_email
+- teacher_password
 
 ## tb_pattern
 - patter_id
 - pattern_formula
 - teacher_fk
 
-# routes
-![image](https://github.com/Vitors-Miranda/Grade/assets/82851236/ea91c76a-3699-4f4c-b434-7225d167d505)
+# example routes
+- public_html/resources/assets/img/
+- public_html/resources/assets/css/
+- public_html/resources/assets/js/
+- localhost/grade/register
+- localhost/grade/

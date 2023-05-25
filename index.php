@@ -2,8 +2,9 @@
 
 $rota = $_GET['url'] ?? 'index';
 
-if(file_exists("public_html/pages/$rota.html"))
-    include "public_html/pages/$rota.html";
+if(file_exists("public_html/resources/views/$rota.html"))
+    include "public_html/resources/views/$rota.html";
 else 
-    include "public_html/pages/error.html";
+    include "public_html/resources/views/error.html";
+    
 ?>

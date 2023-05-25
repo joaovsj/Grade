@@ -16,13 +16,20 @@ class Teacher
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":name", $data['teacher_name']);
         $stmt->bindValue(":email", $data['teacher_email']);
-        $stmt->bindValue(":password", $data['teacher_password']);
+        $stmt->bindValue(":password", sha1($data['teacher_password']));
 
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
+        try {
+            $stmt->execute();
             return "Success to register teacher!";
-        } 
-        return "Something got wrong...";
+        
+        // If email isn't registered, it was aready registered.
+        
+        } catch (\Throwable $th) {
+            return [
+                "error" => 1,
+                "message" => "Email was aready registered"
+            ];
+        }
+        
     }
 }
