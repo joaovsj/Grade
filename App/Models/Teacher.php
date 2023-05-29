@@ -9,7 +9,6 @@ class Teacher
 
     public static function insert($data)
     {
-
         /* Data must have [teacher_name] */
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
         $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name, :email, :password)';

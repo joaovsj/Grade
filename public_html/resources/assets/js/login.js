@@ -1,7 +1,8 @@
 
+import {request} from "./login"
 const password = document.querySelector("#password");
 const icon = document.querySelector("#icon-password");
-
+const form = document.querySelector("#form");
 
 icon.addEventListener('click', ()=>{
     
@@ -14,3 +15,13 @@ icon.addEventListener('click', ()=>{
     }
 
 });
+
+form.addEventListener('submit', (event)=>{
+    event.preventDefault();
+
+    let data = new FormData(form);
+    request("teacher","POST", data, (response)=>{
+        alert(response.status)
+    })
+});
+
