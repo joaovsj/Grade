@@ -1,8 +1,8 @@
 
-import {request} from "./login"
+import {request} from "./request.js"
 const password = document.querySelector("#password");
 const icon = document.querySelector("#icon-password");
-const form = document.querySelector("#form");
+const form = document.querySelector("form");
 
 icon.addEventListener('click', ()=>{
     
@@ -20,8 +20,13 @@ form.addEventListener('submit', (event)=>{
     event.preventDefault();
 
     let data = new FormData(form);
-    request("teacher","POST", data, (response)=>{
-        alert(response.status)
+    request("login?controller=teacher","POST", data, (response)=>{
+        
+        if(response.data == true){
+            window.location.href = "panel.html";
+        } else{
+            alert('error')
+        }
     })
 });
 

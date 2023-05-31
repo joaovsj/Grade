@@ -1,5 +1,5 @@
 
-import {request} from "./request"
+import {request} from "./request.js"
 const form = document.querySelector("#form");
 
 form.addEventListener('submit', (event)=>{

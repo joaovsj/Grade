@@ -22,9 +22,9 @@ class Login
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return "Login made with successfully!";
+            return true;
         } else{
-            return "Wrong email or password.";
+            return false;
         }
     }
 }
