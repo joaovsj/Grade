@@ -24,9 +24,9 @@ if (isset($_GET["url"])) {
         try {
             $response = call_user_func_array([new $controller, $method], $url);
             http_response_code(200);
-            echo json_encode(["status" => "success", "data" => $response], JSON_UNESCAPED_UNICODE);
+            echo json_encode(["status" => true, "data" => $response], JSON_UNESCAPED_UNICODE);
         } catch (\Exception $e) {
-            echo json_encode(["status" => "error", "data" => $e->getMessage()], JSON_UNESCAPED_UNICODE);
+            echo json_encode(["status" => false, "data" => $e->getMessage()], JSON_UNESCAPED_UNICODE);
             throw new Exception();
         }
     }

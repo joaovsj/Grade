@@ -33,7 +33,7 @@ main header{
 }
 
 main header>span{
-    color: #505050;
+    color: #FFF;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;

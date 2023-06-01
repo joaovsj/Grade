@@ -1,8 +1,9 @@
 
-import {request} from "./request.js"
+import {request} from "./request"
 const password = document.querySelector("#password");
 const icon = document.querySelector("#icon-password");
 const form = document.querySelector("form");
+const msg = document.querySelector(".message");
 
 icon.addEventListener('click', ()=>{
     
@@ -22,10 +23,18 @@ form.addEventListener('submit', (event)=>{
     let data = new FormData(form);
     request("login?controller=teacher","POST", data, (response)=>{
         
-        if(response.data == true){
-            window.location.href = "panel.html";
-        } else{
-            alert('error')
+        console.log(response);
+
+        if(response.data){
+            
+            window.location.href = "public_html/resources/views/panel.html";
+            
+        }else{ 
+
+            let p = document.createElement("p");
+            p.innerHTML = "Erro ao fazer login!";
+            msg.classList.add("active", "error");
+            msg.appendChild(p);
         }
     })
 });
