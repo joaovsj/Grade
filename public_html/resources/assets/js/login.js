@@ -30,11 +30,12 @@ form.addEventListener('submit', (event)=>{
             window.location.href = "public_html/resources/views/panel.html";
             
         }else{ 
-
-            let p = document.createElement("p");
-            p.innerHTML = "Erro ao fazer login!";
-            msg.classList.add("active", "error");
-            msg.appendChild(p);
+            if(msg.innerHTML == ""){
+                let p = document.createElement("p");
+                p.innerHTML = "Dados inválidos!";
+                msg.classList.add("active", "error");
+                msg.appendChild(p);
+            }
         }
     })
 });

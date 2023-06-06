@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
+  <link rel="stylesheet" href="../assets/css/panel.css">
+ 
+  <title>Painek</title>
 </head>
 <body>
-    <h1>Entrou</h1>
+    <header>
+        <nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="side-bar">
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="menu">
+                    <div class="item"><a href="#"><i class="fas fa-desktop"></i>Perfil</a></div>
+                        <div class="item">
+                            <a href="#" class="sub-btn"><i class="fas fa-table"></i>Classes<i class="fas fa-angle-right dropdown"></i></a>
+                            <div class="sub-menu">
+                                <a href="" class="sub-item">1° Ano</a>
+                                <a href="" class="sub-item">2° Ano</a>
+                                <a href="" class="sub-item">3° Ano</a>
+                            </div>
+                        </div>
+                    <div class="item"><a href="#"><i class="fas fa-info-circle"></i>Sair</a></div>
+                </div> <!-- close div menu -->
+            </div> <!-- close div side-bar -->
+        </nav>
+    </header>
+
+    <script type="text/javascript">
+        $(document).ready(function(){ // função depois que o odocumento for carregado
+            $('.sub-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle() 
+                // this-> seleciona o elemento atual que está sendo operado dentro de uma função 
+                // next -> proximo elemento irmao
+                // slideToggle -> função Jquery (exibi ou oculta os elementos com um movimento dslizante)
+            $(this).find('.dropdown').toggleClass('rotate')
+            });
+
+            $('.menu-btn').click(function(){
+                $('.side-bar').addClass('active');
+                $('.menu-btn').css("visibility", "hidden")
+            });
+       
+            $('.close-btn').click(function(){
+                $('.side-bar').removeClass('active');    
+                $('.menu-btn').css("visibility", "visible");
+            })
+        });
+    </script>
+
 </body>
 </html>
