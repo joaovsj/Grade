@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Poppins:wght@400;500&display=swap');
+
 :root{
     --color1: rgba(3, 57, 165, 1); 
     --color2: rgba(3, 172, 191, 1); 
@@ -6,16 +8,23 @@
     --color5: rgba(242, 56, 14, 1); 
 }
 
-
+:root{
+    --color1: rgba(3, 57, 165, 1); 
+    --color2: rgba(3, 172, 191, 1); 
+    --color3: rgba(242, 182, 4, 1);
+    --color4: rgba(242, 135, 4, 1); 
+    --color5: rgba(242, 56, 14, 1); 
+}
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body{
+    position: relative;
     min-height: 100vh;
     background-color: #f1efef;
     /*background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
@@ -27,6 +36,7 @@ body{
     width: 290px;
     height: 100vh;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: -100%;
     overflow-y: auto; /* aticiona barras de rolagem apenas quando necessário */
@@ -111,3 +121,144 @@ body{
     cursor: pointer;
 }
 
+main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+}
+
+main .section_text{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: calc(10px + 2vmin);
+}
+
+main .section_form{
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+.section_form .first{
+    position: relative;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    border-radius: 8px;
+}
+
+.section_form .first p{
+    position: absolute;
+    top: 30%;
+}
+
+.section_form .first p>span{
+    font-weight: bold;
+    color: var(--color5);
+}
+
+.section_form .second{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section_form .second form {
+    transform: translate(-5%, -10%);
+    border-radius: 8px;
+    background-color: transparent;
+    width: min-content;
+    height: min-content;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.second form .inputBox{
+    width: 340px;
+    height: 40px;
+    margin: 10px 0;
+}
+.second form .inputBox select{
+    padding-left: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #f1efef;
+    border-radius: 8px;
+}
+
+.second form .inputBox select,
+.second form .inputBox input{
+    cursor: pointer;
+}
+
+.second form .inputBox button{
+    width: 100%;
+    height: 100%;
+    background-color: #4158D0;
+    border-radius: 8px;
+    color: #FFF;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.second form .inputBox button:hover{
+    background-color: #3144a1;
+}
+
+@media (max-width: 883px) {
+    .section_form{
+        flex-direction: column;
+        align-items: center;
+    }
+    .section_form .second form {
+        transform: translate(0%);
+    }
+
+    .second form .inputBox{
+        width: 70vw;
+    }
+
+}
+
+/* 
+.square-one{
+    position: absolute;
+    bottom: -10%;
+    right: 0%;
+    z-index: -22;
+    height: 400px;
+    width: 400px;
+    filter: blur(8px);
+    background-color: var(--color3);
+}
+
+.square-two{
+    position: absolute;
+    z-index: -22;
+    height: 200px;
+    width: 350px;
+    filter: blur(8px);
+    background-color: var(--color2);
+} */

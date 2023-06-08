@@ -9,7 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
   <link rel="stylesheet" href="../assets/css/panel.css">
  
-  <title>Painek</title>
+  <title>Painel</title>
 </head>
 <body>
     <header>
@@ -37,6 +37,63 @@
         </nav>
     </header>
 
+    <main>
+        <section class="section_text">
+            <p>Bem vindo(a) Fulano</p>
+        </section>
+        <section class="section_form">
+            <div class="first">
+                <p>
+                    Crie suas regras aqui, e as <br>aplique onde <span>você desejar!</span>
+                </p>
+            </div>
+            <div class="second">
+                    <form action="">
+                        <div class="inputBox">
+                            <select name="viagem">
+                                <option value="">Selecione uma opção</option>
+                                <option value="MB">MB</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                                <option value="I">I</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <select name="viagem">
+                                <option value="">Selecione uma opção</option>
+                                <option value="MB">MB</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                                <option value="I">I</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <select name="viagem">
+                                <option value="">Selecione uma opção</option>
+                                <option value="MB">MB</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                                <option value="I">I</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <select name="viagem">
+                                <option value="">Selecione uma opção</option>
+                                <option value="MB">MB</option>
+                                <option value="B">B</option>
+                                <option value="R">R</option>
+                                <option value="I">I</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <button>Cadastrar</button>
+                        </div>
+                    </form>
+            </div>
+        </section>
+    </main>
+
+
     <script type="text/javascript">
         $(document).ready(function(){ // função depois que o odocumento for carregado
             $('.sub-btn').click(function(){
@@ -44,7 +101,7 @@
                 // this-> seleciona o elemento atual que está sendo operado dentro de uma função 
                 // next -> proximo elemento irmao
                 // slideToggle -> função Jquery (exibi ou oculta os elementos com um movimento dslizante)
-            $(this).find('.dropdown').toggleClass('rotate')
+                $(this).find('.dropdown').toggleClass('rotate')
             });
 
             $('.menu-btn').click(function(){
@@ -58,6 +115,5 @@
             })
         });
     </script>
-
 </body>
 </html>
