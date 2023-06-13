@@ -30,7 +30,7 @@ form.addEventListener('submit', (event)=>{
     
             localStorage.setItem("status", true);
             localStorage.setItem("person", JSON.stringify(response.data));
-            window.location.href = "public_html/resources/views/panel.html";
+            window.location.href = "public_html/resources/views/rules.html";
             
         }else{ 
             if(msg.innerHTML == ""){

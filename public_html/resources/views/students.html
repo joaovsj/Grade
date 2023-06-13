@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/219248cbde.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
-  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
   <link rel="stylesheet" href="../assets/css/panel.css">
   <link rel="stylesheet" href="../assets/css/profile.css">
-
-  <title>Perfil</title>
+ 
+  <title>Painel</title>
 </head>
 <body>
     <header>
@@ -41,21 +40,19 @@
 
     <main>
         <section class="section_title">
-            <p>Mude sua senha aqui</p>
+            <p>Cadastrando alguns estudantes!</p>
         </section>
         <section class="section_form">
-            <form action="">
+            <form id="form">
+                <div class="message"></div>                
                 <div class="inputBox">
-                    <input type="password" name="oldPassword" placeholder="Senha atual...">
+                    <input type="text" name="student_name" placeholder="Nome">
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="newPassword" placeholder="Nova senha">
+                    <input type="number" name="student_age" min="1" placeholder="idade">
                 </div>
                 <div class="inputBox">
-                    <input type="password" name="passwordConfirm" placeholder="Confirmar senha">
-                </div>
-                <div class="inputBox">
-                    <button type="submit">Definir</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
             </form>
         </section>
@@ -84,4 +81,5 @@
         });
     </script>
 </body>
+<script type="module" src="public_html/resources/assets/js/students.js" defer></script>
 </html>

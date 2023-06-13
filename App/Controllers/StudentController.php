@@ -10,5 +10,4 @@ class studentController{
     public static function get(){
         return Student::select($_GET);
     }
-
 }

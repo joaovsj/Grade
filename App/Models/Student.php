@@ -12,10 +12,11 @@ class Student
     {
     /* Data must have [student_name] */
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
-        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name)';
+        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name, :age)';
 
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":name", $data['student_name']);
+        $stmt->bindValue(":age", $data['student_age']);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
