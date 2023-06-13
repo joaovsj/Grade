@@ -20,10 +20,13 @@ class Login
         $stmt->bindValue(":email", $email);
         $stmt->bindValue(":password", sha1($password));
         $stmt->execute();
+        $data = $stmt->fetch(\PDO::FETCH_OBJ);
 
-        if ($stmt->rowCount() > 0) {
-            return true;
+        if ($data) {
+            return $data;
+
         } else{
+
             return false;
         }
     }

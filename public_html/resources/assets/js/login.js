@@ -17,16 +17,19 @@ icon.addEventListener('click', ()=>{
 
 });
 
+
+localStorage.clear();
+
 form.addEventListener('submit', (event)=>{
     event.preventDefault();
 
     let data = new FormData(form);
     request("login?controller=teacher","POST", data, (response)=>{
-        
-        console.log(response);
 
-        if(response.data){
-            
+        if(response.status){
+        
+            localStorage.setItem("status", true);
+            localStorage.setItem("person", JSON.stringify(response.data));
             window.location.href = "public_html/resources/views/panel.html";
             
         }else{ 
