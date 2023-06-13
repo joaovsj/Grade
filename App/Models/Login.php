@@ -24,7 +24,7 @@ class Login
 
         if ($data) {
             return $data;
-
+            
         } else{
 
             return false;

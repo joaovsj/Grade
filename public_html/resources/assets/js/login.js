@@ -26,8 +26,8 @@ form.addEventListener('submit', (event)=>{
     let data = new FormData(form);
     request("login?controller=teacher","POST", data, (response)=>{
 
-        if(response.status){
-        
+        if(typeof(response.data) == 'object'){
+    
             localStorage.setItem("status", true);
             localStorage.setItem("person", JSON.stringify(response.data));
             window.location.href = "public_html/resources/views/panel.html";
