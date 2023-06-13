@@ -8,14 +8,6 @@
     --color5: rgba(242, 56, 14, 1); 
 }
 
-:root{
-    --color1: rgba(3, 57, 165, 1); 
-    --color2: rgba(3, 172, 191, 1); 
-    --color3: rgba(242, 182, 4, 1);
-    --color4: rgba(242, 135, 4, 1); 
-    --color5: rgba(242, 56, 14, 1); 
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -242,23 +234,3 @@ main .section_form{
 
 }
 
-/* 
-.square-one{
-    position: absolute;
-    bottom: -10%;
-    right: 0%;
-    z-index: -22;
-    height: 400px;
-    width: 400px;
-    filter: blur(8px);
-    background-color: var(--color3);
-}
-
-.square-two{
-    position: absolute;
-    z-index: -22;
-    height: 200px;
-    width: 350px;
-    filter: blur(8px);
-    background-color: var(--color2);
-} */
