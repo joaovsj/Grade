@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 18-Maio-2023 às 23:13
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 01-Jul-2023 às 12:01
+-- Versão do servidor: 5.7.40
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,6 +29,7 @@ USE `grades`;
 -- Estrutura da tabela `assignment_tb`
 --
 
+DROP TABLE IF EXISTS `assignment_tb`;
 CREATE TABLE `assignment_tb` (
   `assignment_id` int(11) NOT NULL,
   `assingment_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL
@@ -48,6 +49,7 @@ INSERT INTO `assignment_tb` (`assignment_id`, `assingment_name`) VALUES
 -- Estrutura da tabela `grade_tb`
 --
 
+DROP TABLE IF EXISTS `grade_tb`;
 CREATE TABLE `grade_tb` (
   `grades_id` int(11) NOT NULL,
   `assignment_grade` char(2) COLLATE utf8_swedish_ci NOT NULL COMMENT 'MB, B, R, I',
@@ -68,6 +70,7 @@ INSERT INTO `grade_tb` (`grades_id`, `assignment_grade`, `assignment_fk`, `stude
 -- Estrutura da tabela `pattern_tb`
 --
 
+DROP TABLE IF EXISTS `pattern_tb`;
 CREATE TABLE `pattern_tb` (
   `pattern_id` int(11) NOT NULL,
   `pattern_formula` varchar(50) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Ex: mb + b + b + mb = mb',
@@ -80,18 +83,21 @@ CREATE TABLE `pattern_tb` (
 -- Estrutura da tabela `student_tb`
 --
 
+DROP TABLE IF EXISTS `student_tb`;
 CREATE TABLE `student_tb` (
   `student_id` int(11) NOT NULL,
-  `student_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL
+  `student_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
+  `student_age` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `student_tb`
 --
 
-INSERT INTO `student_tb` (`student_id`, `student_name`) VALUES
-(1, 'Vitor Miranda'),
-(2, 'Carlos Eduardo');
+INSERT INTO `student_tb` (`student_id`, `student_name`, `student_age`) VALUES
+(1, 'Vitor Miranda', 0),
+(2, 'Carlos Eduardo', 0),
+(3, 'teste', 15);
 
 -- --------------------------------------------------------
 
@@ -99,17 +105,20 @@ INSERT INTO `student_tb` (`student_id`, `student_name`) VALUES
 -- Estrutura da tabela `teacher_tb`
 --
 
+DROP TABLE IF EXISTS `teacher_tb`;
 CREATE TABLE `teacher_tb` (
   `teacher_id` int(11) NOT NULL,
-  `teacher_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL
+  `teacher_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
+  `teacher_email` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `teacher_password` varchar(255) COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `teacher_tb`
 --
 
-INSERT INTO `teacher_tb` (`teacher_id`, `teacher_name`) VALUES
-(1, 'João Jesus');
+INSERT INTO `teacher_tb` (`teacher_id`, `teacher_name`, `teacher_email`, `teacher_password`) VALUES
+(1, 'João Jesus', '', '');
 
 --
 -- Índices para tabelas despejadas
@@ -174,13 +183,13 @@ ALTER TABLE `pattern_tb`
 -- AUTO_INCREMENT de tabela `student_tb`
 --
 ALTER TABLE `student_tb`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `teacher_tb`
 --
 ALTER TABLE `teacher_tb`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restrições para despejos de tabelas
