@@ -10,9 +10,10 @@ class Student
     /* Post Method*/
     public static function insert($data)
     {
+        
     /* Data must have [student_name] */
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
-        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name, :age)';
+        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0, :name, :age)';      
 
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":name", $data['student_name']);
@@ -20,9 +21,9 @@ class Student
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return "Success to register student!";
+            return true;
         } 
-        return "Something got wrong...";
+        return false;
     }
 
     /* Get Method*/

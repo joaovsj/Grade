@@ -25,6 +25,7 @@ main .section_form{
     height: calc(100%-20%);
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -64,4 +65,28 @@ main .section_form .inputBox button:hover{
         width: 100%;
     }
 
+}
+
+.message{
+    width: calc(20px + 30vmax);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    color: #272727;
+    font-family: 'Montserrat', sans-serif;  
+    opacity: 0;
+    font-size: calc(7px + 1vmin);
+}
+
+.success{
+    background-color: rgb(136, 218, 136);
+}
+
+.error{
+    background-color: rgba(255, 99, 71, 0.646);
+}
+
+.active{
+    opacity: 1;
+    padding: 20px;
+    /* animation: show 4s; */
 }
