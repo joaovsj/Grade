@@ -18,12 +18,19 @@ class Student
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":name", $data['student_name']);
         $stmt->bindValue(":age", $data['student_age']);
-        $stmt->execute();
+        
+        try {
 
-        if ($stmt->rowCount() > 0) {
-            return true;
-        } 
-        return false;
+            $stmt->execute();
+            if($stmt->rowCount() > 0){
+                return true;
+            }
+
+            return false;
+            
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 
     /* Get Method*/

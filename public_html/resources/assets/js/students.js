@@ -9,18 +9,27 @@ form.addEventListener('submit', (event)=>{
     let data = new FormData(form); 
     request('student', 'POST', data, (response)=>{
 
+        msg.innerHTML = "";    // zerando conteudo da div 
         let p = document.createElement("p");
+
         if(response.data == true){
-            
-            p.innerHTML = "Cadastro realizado com sucesso!"
+            if(msg.classList.contains("error")){
+                msg.classList.remove("error")
+            }
+            p.innerText = "Cadastro realizado com sucesso!";
             msg.classList.add("success", "active");
-            msg.appendChild(p);
-            
-        
-        }else{ 
-            p.innerHTML = "Erro ao realizar cadastro!";
+            msg.appendChild(p);                
+                
+        } else {
+
+            if(msg.classList.contains("success")){
+                msg.classList.remove("success")
+            }
+
+            p.innerText = "Erro ao realizar cadastro!";
             msg.classList.add("error", "active");
             msg.appendChild(p);
+            
         }
 
 

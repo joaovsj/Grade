@@ -14,11 +14,9 @@ form.addEventListener('submit', (event)=>{
         let p = document.createElement("p");
 
         if(response.data == true){
-        
             if(msg.classList.contains("error")){
                 msg.classList.remove("error")
             }
-
             p.innerText = "Cadastro realizado com sucesso!";
             msg.classList.add("success", "active");
             msg.appendChild(p);                
@@ -28,7 +26,7 @@ form.addEventListener('submit', (event)=>{
             if(msg.classList.contains("success")){
                 msg.classList.remove("success")
             }
-            
+
             p.innerText = "Erro ao realizar cadastro!";
             msg.classList.add("error", "active");
             msg.appendChild(p);
