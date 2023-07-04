@@ -1,0 +1,133 @@
+main{
+    flex-direction: row !important;
+}
+
+.first_section{
+    width: 50%;
+    height: 100%;
+    background-color: var(--color1);
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    font-weight: 600;
+}
+
+.second_section{    
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.second_section .second{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.second_section .second form {
+    transform: translate(-5%, -10%);
+    border-radius: 8px;
+    background-color: transparent;
+    width: min-content;
+    height: min-content;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.second_section form .inputBox{
+    width: 340px;
+    height: 40px;
+    margin: 10px 0;
+}
+.second_section form .inputBox select{
+    padding-left: 10px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #f1efef;
+    border-radius: 8px;
+}
+
+.second_section form .inputBox textarea{
+    padding-left: 10px;
+    border: none;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: 5vh;
+    background-color: #f1efef;
+    border-radius: 8px;
+}
+
+.second_section form .inputBox select,
+.second_section form .inputBox input{
+    cursor: pointer;
+}
+
+main .second_section .inputBox{
+    width: 100%;
+    margin: 20px 0;
+}
+
+main .second_section .inputBox input{
+    width: calc(20px + 30vmax);
+    padding: 10px;
+    border: none;
+    background-color: #f1efef;
+    border-radius: 8px;
+}
+
+.second_section form .inputBox button{
+    width: 100%;
+    height: 100%;
+    background-color: #4158D0;
+    border-radius: 8px;
+    color: #FFF;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+    margin-top: 50px;
+    transition: .4s;
+}
+
+.second_section form .inputBox button:hover{
+    background-color: #3144a1;
+}
+
+@media (max-width: 883px) {
+    
+    main{
+        flex-direction: column !important;
+    }
+    
+    .first_section{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .second_section{
+        width: 100%;
+    }
+
+    .second_section .second form {
+        transform: translate(0%);
+    }
+
+    main .second_section .inputBox input {
+        width: 100%;
+    }
+
+    .second_section form .inputBox{
+        width: 70vw;
+    }
+
+}

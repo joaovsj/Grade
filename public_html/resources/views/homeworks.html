@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/219248cbde.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
+  <script src="../assets/js/logout.js"></script>
+  <link rel="stylesheet" href="../assets/css/panel.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
+  <link rel="stylesheet" href="../assets/css/homeworks.css">
+
+  <title>Perfil</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="side-bar">
+                <div class="close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="menu">
+                    <div class="item"><a href="profile"><i class="fa-solid fa-user"></i>Perfil</a></div>
+                        <div class="item">
+                            <a href="#" class="sub-btn"><i class="fas fa-table"></i>Tarefas<i class="fas fa-angle-right dropdown"></i></a>
+                            <div class="sub-menu">
+                                <a href="rules" class="sub-item">Regras</a>
+                                <a href="homeworks" class="sub-item">Trabalhos</a>
+                                <a href="students" class="sub-item">Alunos</a>
+                            </div>
+                        </div>
+                    <div class="item"><a href="javascript:logout()"><i class="fa-solid fa-right-from-bracket"></i>Sair</a></div>
+                </div> <!-- close div menu -->
+            </div> <!-- close div side-bar -->
+        </nav>
+    </header>
+
+    <main>
+        <section class="first_section">
+            <p>Cadastrando alguns trabalhos!</p>
+        </section>
+        <section class="second_section">
+            <form action="" id="form">
+                <div class="message"></div>
+                <div class="inputBox">
+                    <input type="text" name="assignment_name" placeholder="Nome" required>
+                </div>
+                <div class="inputBox">
+                    <textarea name="assignment_description" cols="30" rows="5" required placeholder="Descrição..."></textarea>
+                </div>
+                <div class="inputBox">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){ // função depois que o odocumento for carregado
+            $('.sub-btn').click(function(){
+                $(this).next('.sub-menu').slideToggle() 
+                // this-> seleciona o elemento atual que está sendo operado dentro de uma função 
+                // next -> proximo elemento irmao
+                // slideToggle -> função Jquery (exibi ou oculta os elementos com um movimento dslizante)
+                $(this).find('.dropdown').toggleClass('rotate')
+            });
+
+            $('.menu-btn').click(function(){
+                $('.side-bar').addClass('active');
+                $('.menu-btn').css("visibility", "hidden")
+            });
+       
+            $('.close-btn').click(function(){
+                $('.side-bar').removeClass('active');    
+                $('.menu-btn').css("visibility", "visible");
+            })
+        });
+    </script>
+</body>
+<script type="module" src="../assets/js/assignment.js" defer></script>
+</html>

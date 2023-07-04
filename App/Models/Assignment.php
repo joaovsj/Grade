@@ -13,16 +13,21 @@ class Assignment
 
     /* Data must have [assignment_name] */
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
-        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name)';
+        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0,:name, :description)';
         
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":name", $data['assignment_name']);
-        $stmt->execute();
+        $stmt->bindValue(":description", $data['assignment_description']);
 
-        if ($stmt->rowCount() > 0) {
-            return "Success to register assignment!";
-        } 
-        return "Something got wrong...";
+        // If email isn't registered, it was aready registered.
+        try {
+
+            $stmt->execute();
+            return true;
+        
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 
     /* Get Method*/
