@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 01-Jul-2023 às 12:01
+-- Tempo de geração: 04-Jul-2023 às 21:51
 -- Versão do servidor: 5.7.40
 -- versão do PHP: 8.0.26
 
@@ -30,10 +30,11 @@ USE `grades`;
 --
 
 DROP TABLE IF EXISTS `assignment_tb`;
-CREATE TABLE `assignment_tb` (
-  `assignment_id` int(11) NOT NULL,
-  `assingment_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+CREATE TABLE IF NOT EXISTS `assignment_tb` (
+  `assignment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `assingment_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
+  PRIMARY KEY (`assignment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `assignment_tb`
@@ -50,12 +51,15 @@ INSERT INTO `assignment_tb` (`assignment_id`, `assingment_name`) VALUES
 --
 
 DROP TABLE IF EXISTS `grade_tb`;
-CREATE TABLE `grade_tb` (
-  `grades_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `grade_tb` (
+  `grades_id` int(11) NOT NULL AUTO_INCREMENT,
   `assignment_grade` char(2) COLLATE utf8_swedish_ci NOT NULL COMMENT 'MB, B, R, I',
   `assignment_fk` int(11) NOT NULL,
-  `student_fk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+  `student_fk` int(11) NOT NULL,
+  PRIMARY KEY (`grades_id`),
+  KEY `fk_aluno` (`student_fk`),
+  KEY `fk_atividade` (`assignment_fk`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `grade_tb`
@@ -71,11 +75,21 @@ INSERT INTO `grade_tb` (`grades_id`, `assignment_grade`, `assignment_fk`, `stude
 --
 
 DROP TABLE IF EXISTS `pattern_tb`;
-CREATE TABLE `pattern_tb` (
-  `pattern_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pattern_tb` (
+  `pattern_id` int(11) NOT NULL AUTO_INCREMENT,
   `pattern_formula` varchar(50) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Ex: mb + b + b + mb = mb',
-  `teacher_fk` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+  `teacher_fk` int(11) NOT NULL,
+  PRIMARY KEY (`pattern_id`),
+  KEY `fk_professor` (`teacher_fk`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Extraindo dados da tabela `pattern_tb`
+--
+
+INSERT INTO `pattern_tb` (`pattern_id`, `pattern_formula`, `teacher_fk`) VALUES
+(1, 'MB + MB + MB + MB = MB', 24),
+(16, 'B + B + B + B = B', 24);
 
 -- --------------------------------------------------------
 
@@ -84,11 +98,13 @@ CREATE TABLE `pattern_tb` (
 --
 
 DROP TABLE IF EXISTS `student_tb`;
-CREATE TABLE `student_tb` (
-  `student_id` int(11) NOT NULL,
-  `student_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
-  `student_age` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+CREATE TABLE IF NOT EXISTS `student_tb` (
+  `student_id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  `student_age` int(100) NOT NULL,
+  PRIMARY KEY (`student_id`),
+  UNIQUE KEY `student_name` (`student_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `student_tb`
@@ -97,7 +113,8 @@ CREATE TABLE `student_tb` (
 INSERT INTO `student_tb` (`student_id`, `student_name`, `student_age`) VALUES
 (1, 'Vitor Miranda', 0),
 (2, 'Carlos Eduardo', 0),
-(3, 'teste', 15);
+(65, 'teste', 15),
+(67, 'jose', 45);
 
 -- --------------------------------------------------------
 
@@ -106,90 +123,22 @@ INSERT INTO `student_tb` (`student_id`, `student_name`, `student_age`) VALUES
 --
 
 DROP TABLE IF EXISTS `teacher_tb`;
-CREATE TABLE `teacher_tb` (
-  `teacher_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `teacher_tb` (
+  `teacher_id` int(11) NOT NULL AUTO_INCREMENT,
   `teacher_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL,
   `teacher_email` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
-  `teacher_password` varchar(255) COLLATE utf8_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+  `teacher_password` varchar(255) COLLATE utf8_swedish_ci NOT NULL,
+  PRIMARY KEY (`teacher_id`),
+  UNIQUE KEY `teacher_email` (`teacher_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=232 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Extraindo dados da tabela `teacher_tb`
 --
 
 INSERT INTO `teacher_tb` (`teacher_id`, `teacher_name`, `teacher_email`, `teacher_password`) VALUES
-(1, 'João Jesus', '', '');
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `assignment_tb`
---
-ALTER TABLE `assignment_tb`
-  ADD PRIMARY KEY (`assignment_id`);
-
---
--- Índices para tabela `grade_tb`
---
-ALTER TABLE `grade_tb`
-  ADD PRIMARY KEY (`grades_id`),
-  ADD KEY `fk_aluno` (`student_fk`),
-  ADD KEY `fk_atividade` (`assignment_fk`);
-
---
--- Índices para tabela `pattern_tb`
---
-ALTER TABLE `pattern_tb`
-  ADD PRIMARY KEY (`pattern_id`),
-  ADD KEY `fk_professor` (`teacher_fk`);
-
---
--- Índices para tabela `student_tb`
---
-ALTER TABLE `student_tb`
-  ADD PRIMARY KEY (`student_id`);
-
---
--- Índices para tabela `teacher_tb`
---
-ALTER TABLE `teacher_tb`
-  ADD PRIMARY KEY (`teacher_id`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `assignment_tb`
---
-ALTER TABLE `assignment_tb`
-  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `grade_tb`
---
-ALTER TABLE `grade_tb`
-  MODIFY `grades_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `pattern_tb`
---
-ALTER TABLE `pattern_tb`
-  MODIFY `pattern_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `student_tb`
---
-ALTER TABLE `student_tb`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de tabela `teacher_tb`
---
-ALTER TABLE `teacher_tb`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+(1, 'João Jesus', '', ''),
+(24, 'pedro', 'pedro@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
 
 --
 -- Restrições para despejos de tabelas
