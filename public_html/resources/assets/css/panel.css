@@ -234,3 +234,25 @@ main .section_form{
 
 }
 
+.message{
+    width: 100%;
+    border-radius: 8px;
+    color: #272727;
+    font-family: 'Montserrat', sans-serif;  
+    opacity: 0;
+    font-size: calc(7px + 1vmin);
+}
+
+.success{
+    background-color: rgb(136, 218, 136);
+}
+
+.error{
+    background-color: rgba(255, 99, 71, 0.646);
+}
+
+.active{
+    opacity: 1;
+    padding: 20px;
+    /* animation: show 4s; */
+}
