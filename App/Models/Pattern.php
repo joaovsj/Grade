@@ -10,7 +10,8 @@ class Pattern
     /* Post Method*/
     public static function insert($data)
     {
-        
+        $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
+
 
         $teacher_id = $data["id"];
         unset($data["id"]);
@@ -28,9 +29,22 @@ class Pattern
             }
         }
         
-        $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
-        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0, :pattern_formula, :teacher_fk)';
-        
+        $sql = 'SELECT * FROM ' . self::$table . ' WHERE teacher_fk = :teacher_fk';
+        $stmt = $connPDO->prepare($sql);
+        $stmt->bindValue(":teacher_fk", $teacher_id);
+        $stmt->execute();
+
+        // verifiacando se padrao já foi cadastrado
+        if($stmt->rowCount() > 0){
+            $allData = $stmt->fetchAll(\PDO::FETCH_OBJ);
+            foreach($allData as $data){
+                if($data->pattern_formula == $pattern){
+                    return false;
+                }
+            }
+        }
+
+        $sql = 'INSERT INTO ' . self::$table . ' VALUES (0, :pattern_formula, :teacher_fk)';    
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":pattern_formula",  $pattern);
         $stmt->bindValue(":teacher_fk", $teacher_id);

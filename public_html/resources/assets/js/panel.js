@@ -21,15 +21,26 @@ form.addEventListener('submit', (event)=>{
 
     request('pattern', 'POST', data, (response)=>{
 
+        msg.innerHTML = "";
         let p = document.createElement("p");
-        if(response.status == true){
+
+        if(response.data == true){
             
+            if(msg.classList.contains("error")){
+                msg.classList.remove("error")
+            }
+
             p.innerHTML = "Fórmula cadastrada com sucesso!"
             msg.classList.add("success", "active");
             msg.appendChild(p);
             
         
         }else{ 
+
+            if(msg.classList.contains("success")){
+                msg.classList.remove("success")
+            }
+
             p.innerHTML = "Erro ao realizar cadastro!";
             msg.classList.add("error", "active");
             msg.appendChild(p);
