@@ -17,17 +17,14 @@ class Teacher
         $stmt->bindValue(":email", $data['teacher_email']);
         $stmt->bindValue(":password", sha1($data['teacher_password']));
 
-        try {
-            $stmt->execute();
-            return "Success to register teacher!";
-        
         // If email isn't registered, it was aready registered.
+        try {
+
+            $stmt->execute();
+            return true;
         
         } catch (\Throwable $th) {
-            return [
-                "error" => 1,
-                "message" => "Email was aready registered"
-            ];
+            return false;
         }
         
     }
