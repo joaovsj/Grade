@@ -10,9 +10,10 @@
   integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
   <script src="../assets/js/logout.js"></script>
+  <script src="../assets/js/verify.js" defer></script>
   <link rel="stylesheet" href="../assets/css/panel.css">
   <link rel="stylesheet" href="../assets/css/profile.css">
-  <link rel="stylesheet" href="../assets/css/homeworks.css">
+  <link rel="stylesheet" href="../assets/css/grades.css">
 
   <title>Perfil</title>
 </head>
@@ -44,25 +45,37 @@
     </header>
 
     <main>
-        <section class="first_section">
-            <p>Cadastrando alguns trabalhos!</p>
+        <section class="section_title">
+            <p>Validando notas</p>
         </section>
-        <section class="second_section">
+        <section class="section_form">
             <form action="" id="form">
-                <div class="message"></div>
+              
                 <div class="inputBox">
-                    <input type="text" name="assignment_name" placeholder="Nome" required>
-                </div>
-                <div class="inputBox">
-                    <textarea name="assignment_description" cols="30" rows="5" required placeholder="Descrição..."></textarea>
-                </div>
-                <div class="inputBox">
-                    <button type="submit">Cadastrar</button>
+                    <p id="tarefa">Tarefa: </p>
+                    <select name="primeira" id="options">
+                        <!-- <option value="">Selecione uma opção</option> -->
+                    </select>
                 </div>
             </form>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>1° Bimestre</th>
+                        <th>2° Bimestre</th>
+                        <th>3° Bimestre</th>
+                        <th>4° Bimestre</th>
+                        <th colspan="2">Média</th>
+                    </tr>
+                </thead>
+                <tbody id="content-table"> 
+                   <!-- All content -->
+                </tbody>
+            </table>
         </section>
     </main>
-
 
     <script type="text/javascript">
         $(document).ready(function(){ // função depois que o odocumento for carregado
@@ -86,5 +99,5 @@
         });
     </script>
 </body>
-<script type="module" src="../assets/js/assignment.js" defer></script>
+<script type="module" src="../assets/js/grades.js"></script>
 </html>

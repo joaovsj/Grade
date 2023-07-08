@@ -8,4 +8,7 @@ class patternController{
         return Pattern::insert($_POST);
     }
 
+    public static function get(){
+        return Pattern::select($_POST);
+    }
 }

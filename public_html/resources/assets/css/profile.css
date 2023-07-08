@@ -64,7 +64,6 @@ main .section_form .inputBox button:hover{
     main .section_form .inputBox input{
         width: 100%;
     }
-
 }
 
 .message{
@@ -90,3 +89,4 @@ main .section_form .inputBox button:hover{
     padding: 20px;
     /* animation: show 4s; */
 }
+

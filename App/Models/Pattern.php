@@ -59,5 +59,11 @@ class Pattern
     /* Get Method*/
     public static function select($data = null){
 
+        $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
+        $sql = "SELECT * FROM ".self::$table;
+
+        $stmt= $connPDO->query($sql);
+        $patterns = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $patterns;
     }
 }

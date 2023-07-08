@@ -28,18 +28,15 @@ class Assignment
         } catch (\Throwable $th) {
             return false;
         }
+
     }
 
     /* Get Method*/
     public static function select($data = null){
-        /* if you don't send the id by GET, it'll list all of students*/
-        /* To send the ID, put it on after the class name, for example: http://localhost/grades/public_html/api/classname/1 */
-
-        $id = substr($data["url"],-1);
-        $id = is_numeric($id)  ? " WHERE assignment_id = $id" : "";
+    
 
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
-        $sql = "SELECT * FROM ".self::$table.$id;
+        $sql = "SELECT * FROM ".self::$table;
 
         $stmt= $connPDO->query($sql);
         $assignment = $stmt->fetchAll(\PDO::FETCH_OBJ);
