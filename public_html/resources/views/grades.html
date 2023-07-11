@@ -10,7 +10,6 @@
   integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="UTF-8" ></script>
   <script src="../assets/js/logout.js"></script>
-  <script src="../assets/js/verify.js" defer></script>
   <link rel="stylesheet" href="../assets/css/panel.css">
   <link rel="stylesheet" href="../assets/css/profile.css">
   <link rel="stylesheet" href="../assets/css/grades.css">
@@ -99,5 +98,31 @@
         });
     </script>
 </body>
+
+<script src="../assets/js/verify.js"></script>
 <script type="module" src="../assets/js/grades.js"></script>
+
+<script>
+        function verifyPerson(pessoa, notas){
+            
+            fetch('http://localhost/grade/public_html/api/pattern')
+            .then(response => response.json())
+            .then(jsonBody => {
+            
+                const patterns = jsonBody.data;
+                
+                patterns.forEach(pattern => {
+                    var regra = pattern.pattern_formula;
+                    var apenasRegra = regra.split(" = ");
+                        
+                    if(notas === apenasRegra[0]){
+                        const notaFinal = apenasRegra[1];
+                        var input = document.getElementById(pessoa);
+                        input.value = notaFinal
+                    }
+                })
+
+            })  
+        }
+</script>
 </html>

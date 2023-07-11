@@ -1,28 +1,33 @@
 
 
-
-
-
-
 function validar(pessoa){
+
     
+    var nomeClass = "grade-"+pessoa
+    var gradeStudent = document.getElementsByClassName(nomeClass)    // by class name sempre retorna HTML collection
+    console.log(gradeStudent[0].value)
+
+
     var selects = document.getElementsByClassName(pessoa);
 
-        let nota = "";
+        let notas = "";
         // pegando valores dos selects
         for (let i = 0; i < 4; i++) {
             // armazenando dentro de uma string
             if(i === 3){
-                nota +=  selects[i].options[selects[i].selectedIndex].value;
+                notas +=  selects[i].options[selects[i].selectedIndex].value;
+
             }else if(i == 4){
                 break;
+
             } else{
-                nota +=  selects[i].options[selects[i].selectedIndex].value + " + ";    
+                notas +=  selects[i].options[selects[i].selectedIndex].value + " + ";    
             }
         
         }
-    
-    getPatterns(nota, pessoa);
+
+        
+    verifyPerson(pessoa, notas);
 }
 
 
