@@ -256,3 +256,58 @@ main .section_form{
     padding: 20px;
     /* animation: show 4s; */
 }
+
+
+
+
+.rules{
+    background-color: var(--color1);
+    width: 80%;
+    padding: 40px;
+    height: min-content;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    margin-bottom: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rules table{
+    width: 80%;
+    background-color: #FFF;
+    border-radius: 8px;
+}
+
+
+.rules table thead tr{
+    line-height: 30px;
+    background-color: var(--color5);
+    color: #FFF;
+}
+
+.rules table tbody tr{
+    line-height: 30px;
+    text-align: center;
+}
+
+.rules table tbody tr td:last-child{
+    position: relative;
+    text-align: center;
+    color: #272727;
+}
+
+.rules table tbody tr td:last-child .action_icon{
+    position: absolute;
+    right: 20%;
+}
+table tbody tr td:last-child .action_icon button{
+    border: none;
+    cursor: pointer;
+    color: var(--color3);
+}
+
+

@@ -9,6 +9,13 @@ class patternController{
     }
 
     public static function get(){
-        return Pattern::select($_POST);
+        return Pattern::select($_GET);
     }
+
+    public static function delete(){
+        $_DELETE = json_decode(file_get_contents("php://input"), true);
+        return Pattern::delete($_DELETE);
+    }
+
+    
 }

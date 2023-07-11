@@ -25,7 +25,7 @@ form.addEventListener('submit', (event)=>{
         let p = document.createElement("p");
 
         if(response.data == true){
-            
+
             if(msg.classList.contains("error")){
                 msg.classList.remove("error")
             }
@@ -33,7 +33,7 @@ form.addEventListener('submit', (event)=>{
             p.innerHTML = "Fórmula cadastrada com sucesso!"
             msg.classList.add("success", "active");
             msg.appendChild(p);
-            
+            getAllContent();
         
         }else{ 
 
@@ -49,3 +49,37 @@ form.addEventListener('submit', (event)=>{
     })
     
 });
+
+
+function getAllContent(){
+    request('pattern', 'GET', null, (response) => {
+    
+
+        const rules = response.data;    
+        const rulesBody = document.querySelector("#rulesBody")
+        
+        rules.forEach(rule => {
+    
+            var regra = rule.pattern_formula;
+            var apenasRegra = regra.split(" = ");
+        
+            rulesBody.innerHTML += `  
+                <tr>
+                    <td>${apenasRegra[0]}</td>
+                    <td>
+                        <span> ${apenasRegra[1]} </span>
+                        <span class="action_icon"> 
+                            <button type="button" onclick="javascript:excluir(${rule.pattern_id})">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </span>
+                     </td>
+                </tr>
+            `
+    
+        })
+    })
+}
+
+
+getAllContent();

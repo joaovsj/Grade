@@ -66,4 +66,24 @@ class Pattern
         $patterns = $stmt->fetchAll(\PDO::FETCH_OBJ);
         return $patterns;
     }
+
+    public static function delete($data){
+
+        
+        $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS); 
+        
+        $sql = 'DELETE FROM ' . self::$table . ' WHERE pattern_id = :id';
+
+        $stmt = $connPDO->prepare($sql);
+        $stmt->bindValue(":id", $data['id']);
+        $stmt->execute();
+
+        if($stmt->rowCount() > 0 ){
+            
+            return true;
+        }
+
+        return false;
+    }
+
 }

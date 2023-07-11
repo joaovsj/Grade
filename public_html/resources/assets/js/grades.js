@@ -16,29 +16,6 @@ request('assignment', "GET", null, (response) => {
     });
 })
 
-// const getPatterns = (notas, pessoa) => {
-
-//     request("pattern", "GET", null, (response)=>{
-//         const patterns = response.data;
-
-//         console.log(notas);
-//         console.log(patterns);
-//         console.log(pessoa);
-  
-//         patterns.forEach(pattern => {
-//             var regra = pattern.pattern_formula;
-//             var apenasRegra = regra.split(" = ");
-            
-//             if(notas === apenasRegra[0]){
-//                 const notaFinal = apenasRegra[1];
-//                 var input = document.getElementById(pessoa);
-//                 input.value = notaFinal
-//             }
-//         })
-//     })
-// }
-
-
 request('student', "GET", null, (response) => {
 
     const students = response.data;    
@@ -95,7 +72,4 @@ request('student', "GET", null, (response) => {
         `
     })
 })
-
-const notes = document.getElementsByClassName('notes');
-console.log(notes.length)
 
