@@ -64,7 +64,7 @@ request('student', "GET", null, (response) => {
                     <td class="last-items">
                         <button type="button" class="btn" value="1" onClick="javascript:validar(${student.student_id})">Validar</button>
                     </td>
-                    <td>
+                    <td class="show">
                         <input type="text" name="media" id="${student.student_id}" class="1">
                         <input type="hidden" name="grade" value="" class="grade-${student.student_id} notes">
                     </td>
