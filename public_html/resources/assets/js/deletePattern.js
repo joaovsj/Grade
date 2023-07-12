@@ -2,23 +2,24 @@
 
 
 function excluir(id){
-    
+
+    alert(id)
+
     const object = {
         id: id
     }
 
-    fetch('http://localhost/grade/public_html/api/pattern', {
-        method: 'DELETE', 
-        body: JSON.stringify(object)
+    // fetch('http://localhost/grade/public_html/api/pattern', {
+    //     method: 'DELETE', 
+    //     body: JSON.stringify(object)
 
-    }).then(response => {
+    // }).then(response => {
 
-        console.log(response);
-        response.json();
+    //     response.json();
 
-    }).then(jsonBody => {
+    // }).then(jsonBody => {
         
-        window.location.reload();
-    });
+    //     window.location.reload();
+    // });
 
 }  

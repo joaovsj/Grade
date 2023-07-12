@@ -15,7 +15,7 @@ class Pattern
 
         $teacher_id = $data["id"];
         unset($data["id"]);
-
+        
         $pattern = "";
         foreach ($data as $key => $value) {
             if($key == "primeira"){
@@ -28,15 +28,16 @@ class Pattern
                 $pattern .= " = ".$value;
             }
         }
-        
+
         $sql = 'SELECT * FROM ' . self::$table . ' WHERE teacher_fk = :teacher_fk';
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":teacher_fk", $teacher_id);
         $stmt->execute();
 
-        // verifiacando se padrao já foi cadastrado
+        // verificando se padrao já foi cadastrado
         if($stmt->rowCount() > 0){
             $allData = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
             foreach($allData as $data){
                 if($data->pattern_formula == $pattern){
                     return false;
@@ -64,6 +65,7 @@ class Pattern
 
         $stmt= $connPDO->query($sql);
         $patterns = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
         return $patterns;
     }
 

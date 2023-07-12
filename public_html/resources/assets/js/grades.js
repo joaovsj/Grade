@@ -11,7 +11,7 @@ request('assignment', "GET", null, (response) => {
 
     body.forEach(option => {
         options.innerHTML+=`
-            <option value="">${option.assingment_name}</option>
+            <option value="${option.assignment_id}">${option.assingment_name}</option>
         `
     });
 })
@@ -70,6 +70,52 @@ request('student', "GET", null, (response) => {
                     </td>
             </tr>    
         `
+    })
+})
+
+
+
+
+// second part
+
+const btn = document.getElementById("save")
+const form = document.getElementById("form")
+const msg = document.querySelector(".message");
+
+btn.addEventListener('click', ()=>{
+    
+    let data = new FormData(form);  
+
+    const assignment = data.get('tarefa');
+    
+    request('student', 'GET', null, (response) => {
+        
+
+        const students = response.data
+        const allContent = []
+        
+        students.forEach( student => {
+            
+            var nota = document.getElementById(student.student_id).value; 
+
+            let contentInsert = new FormData();
+            contentInsert.append("assignment_grade", nota);
+            contentInsert.append("assignment_fk", assignment);
+            contentInsert.append("student_fk", student.student_id);
+
+            request('grade', "POST", contentInsert, (response) => {
+                
+                msg.innerHTML = "";    // zerando conteudo da div 
+                let p = document.createElement("p");
+        
+                p.innerText = "Cadastro realizado com sucesso!";
+                msg.classList.add("success", "active");
+                msg.appendChild(p);                
+                        
+
+            });
+
+        }); 
     })
 })
 

@@ -44,6 +44,7 @@ form.addEventListener('submit', (event)=>{
             p.innerHTML = "Erro ao realizar cadastro!";
             msg.classList.add("error", "active");
             msg.appendChild(p);
+            getAllContent();
         }
 
     })
@@ -55,13 +56,14 @@ function getAllContent(){
     request('pattern', 'GET', null, (response) => {
     
 
-        const rules = response.data;    
+        const rules = response.data;   
         const rulesBody = document.querySelector("#rulesBody")
-        
+
+        rulesBody.innerHTML = "";
         rules.forEach(rule => {
-    
-            var regra = rule.pattern_formula;
-            var apenasRegra = regra.split(" = ");
+
+            const regra = rule.pattern_formula;
+            const apenasRegra = regra.split(" = ");
         
             rulesBody.innerHTML += `  
                 <tr>
@@ -81,5 +83,6 @@ function getAllContent(){
     })
 }
 
-
 getAllContent();
+
+

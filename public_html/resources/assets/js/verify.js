@@ -5,8 +5,6 @@ function validar(pessoa){
     
     var nomeClass = "grade-"+pessoa
     var gradeStudent = document.getElementsByClassName(nomeClass)    // by class name sempre retorna HTML collection
-    console.log(gradeStudent[0].value)
-
 
     var selects = document.getElementsByClassName(pessoa);
 

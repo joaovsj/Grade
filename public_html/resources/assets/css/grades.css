@@ -7,7 +7,6 @@
 }
 
 
-
 .section_form form .inputBox #options{
     padding: 10px;
     border: none;
@@ -145,3 +144,12 @@ table tbody tr .show input{
 .btn-salvar:hover{
     background-color: rgb(202, 112, 3);;   
 }
+
+
+.message{    
+    width: 50%;
+    transform: translateY(-25px);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+

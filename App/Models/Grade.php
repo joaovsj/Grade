@@ -10,22 +10,22 @@ class Grade
     /* Post Method*/
     public static function insert($data)
     {
-
-    /* Data must have the [assignment_id], the [student_id] and the [grade] (MB, B, R or I)*/
+        // die(print_r($data));
+        /* Data must have the [assignment_id], the [student_id] and the [grade] (MB, B, R or I)*/
 
         $connPDO = new \PDO(DBDRIVE . ':host=' . DBHOST . ';dbname=' . DBNAME, DBUSER, DBPASS);
         $sql = 'INSERT INTO ' . self::$table . ' VALUES (0, :grade, :assignment, :student)';
-        
+
         $stmt = $connPDO->prepare($sql);
         $stmt->bindValue(":grade", $data['assignment_grade']);
-        $stmt->bindValue(":assignment", $data['assignment_id']);
-        $stmt->bindValue(":student", $data['student_id']);
+        $stmt->bindValue(":assignment", $data['assignment_fk']);
+        $stmt->bindValue(":student", $data['student_fk']);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            return "Success to register assignment!";
+            return true;
         } 
-        return "Something got wrong...";
+        return false;
     }
 
     /* Get Method*/
