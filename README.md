@@ -1,41 +1,22 @@
 
-# Grade
+<h1 align="center"> Grades 👨‍🎓 </h1>
 
-#### Just import database, it're with "create database"
-#### Basta importar o banco de dados, já está com o "create database".
+Hi Everyone! 
 
-## student_tb
-- student_id
-- student_name
+Esse é um projeto bem simples desenvolvidos em algumas horas vagas em conjunto com um amigo  chamado Vitor Miranda, você pode ver seu repositório [aqui.](https://github.com/Vitors-Miranda) <br> <br>
+O objetivo era criar uma forma dinâmica de validação de notas, ***Grades*** está relacionado a notas/menção escolar em inglês. O sistema utilizado pela nossa insituição de ensino dificulta muito o processso de criação de regras para validação das notas dos alunos. Imagine que as notas são feitas através de letras
 
-## assignment_tb
-- assignment_id
-- assignment_name
+* MB = muito bom
+* B = bom
+* R = regular
+* I = irregular
 
-## grade_tb
-- grade_id
-- student_fk
-- assignment_fk
-- assignment_grade
-- 
-## teacher_tb
-- teacher_id
-- teacher_name
-- teacher_email
-- teacher_password
+Cada professor tinha sua forma de validar as notas, isso é uma forma totalmente pessoal. Então cada um deles criava suas regras específicas de acordo com suas necessidades. 
+O difícil é conseguir lembrar delas todas vez que tiver que por a nota de cada aluno.
 
-## tb_pattern
-- patter_id
-- pattern_formula
-- teacher_fk
+Então confira um vídeo da [apresentação do projeto](https://www.linkedin.com/posts/jo%C3%A3o-victor-a38512232_em-algumas-institui%C3%A7%C3%B5es-de-ensino-eles-usam-activity-7085350652339470336-OIVD?utm_source=share&utm_medium=member_desktop) através do LinkedIn!
 
-# example routes
-- public_html/resources/assets/img/
-- public_html/resources/assets/css/
-- public_html/resources/assets/js/
-- localhost/grade/register
-- localhost/grade/
-  
-# Images
+<br>
+
 ![image](https://github.com/Vitors-Miranda/Grade/assets/82851236/f426e1e2-3067-494b-b394-d4be6e6e386e)
 ![image](https://github.com/Vitors-Miranda/Grade/assets/82851236/17a366f5-14e3-46c5-9a6a-ecef1dfed884)
